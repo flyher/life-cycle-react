@@ -44,6 +44,8 @@ the code  will release in `./dist/` with sourceMap
 npm run pre
 ```
 
+Press F12 to debug
+
 ### Q&A 
 
 [react component life cycle](https://reactjs.org/docs/react-component.html)
