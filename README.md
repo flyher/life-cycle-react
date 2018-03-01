@@ -13,6 +13,8 @@ You can visit this website here:
 
 [Mirror 2](https://www.99diary.com/life-cycle-react/)
 
+[博文demo：流行前端框架的生命周期](https://blog.99diary.com/2018/03/01/流行前端框架的生命周期)
+
 ### todo list
 
 - [x] base on React
