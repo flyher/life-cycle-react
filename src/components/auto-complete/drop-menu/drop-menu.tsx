@@ -2,15 +2,16 @@ import * as React from 'react';
 import { Group } from '../../../model/menu';
 import './drop-menu.less';
 
+// interface Obj {
+//   groups: Array<Group>,
+//   selected: Group
+// }
+// export class DropMenu extends React.Component<any,Obj>
 
 export class DropMenu extends React.Component {
   private groups: Array<Group> = new Array<Group>();
   constructor(props: any) {
     super(props);
-    this.state = {
-      groups: this.groups
-      // selected: new Group()
-    };
     // 构造函数是TS/ES6的特征，在这里无法setState，需要在react的生命周期中setState才可行
     // 所以如果在这里调用 _fetchItems方法是无法执行setState的
     // this._fetchItems();
@@ -111,7 +112,7 @@ export class DropMenu extends React.Component {
       <div className="drop-menu">
         <div className="group-show">
           {/* <input type="input" className="group-name" value="Group"/> */}
-          <span className="group-name" title="{this.state['selected']}">{this.state['selected'].value}</span>
+          <span className="group-name" title="{this.state['selected']}">{this.state['selected'].Value}</span>
           <span className="arrow">▼</span>
         </div>
         <div className="menu">
