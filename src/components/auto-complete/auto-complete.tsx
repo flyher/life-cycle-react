@@ -1,10 +1,11 @@
 import * as React from 'react';
-import { DropMenu } from './drop-menu';
+import { DropMenu } from './drop-menu/drop-menu';
+import './auto-complete.less';
 
 export class AutoComplete extends React.Component {
   render() {
     return (
-      <div style={style.autoComplete}>
+      <div className="auto-complete" style={style.autoComplete}>
         <div style={style.panel}>
           <div>高级搜索</div>
           <div><hr /></div>

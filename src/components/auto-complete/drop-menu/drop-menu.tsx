@@ -1,13 +1,16 @@
 import * as React from 'react';
-import { Group } from '../../model/menu';
-
+import { Group } from '../../../model/menu';
+import './drop-menu.less';
 
 
 export class DropMenu extends React.Component {
   private groups: Array<Group> = new Array<Group>();
   constructor(props: any) {
     super(props);
-    this.state = {};
+    this.state = {
+      groups: this.groups
+      // selected: new Group()
+    };
     // 构造函数是TS/ES6的特征，在这里无法setState，需要在react的生命周期中setState才可行
     // 所以如果在这里调用 _fetchItems方法是无法执行setState的
     // this._fetchItems();
@@ -50,24 +53,34 @@ export class DropMenu extends React.Component {
       },
       {
         ID: 2,
-        Key: 'g1',
-        Value: 'group1'
+        Key: 'g2',
+        Value: 'group2'
       },
       {
         ID: 3,
-        Key: 'g1',
-        Value: 'group1'
+        Key: 'g3',
+        Value: 'group3'
       }
     ];
     this.setState({
-      groups: this.groups
+      groups: this.groups,
+      selected: this.groups[0]
     })
   }
 
-  render(): any {
-    let itemhtml = this.state['groups'].map((item: Group) => {
-      return <li>{item.Value}</li>
+  choiceOneGroup(item: any): void {
+    this.setState({
+      selected: item
     });
+    this.forceUpdate();
+    console.log(this.state['selected']);
+  }
+
+
+  render(): any {
+    // let itemhtml = this.state['groups'].map((item: Group) => {
+    //   return <li>{item.Value}</li>
+    // });
     // why wrong?
     // let itemhtml1 =
     //   this.state['groups'].forEach((item: Group) => {
@@ -84,41 +97,57 @@ export class DropMenu extends React.Component {
     //   })
     // }
     return (
-      <div style={style.dropMenu}>
-        <div style={style.title}>
-          <span>Group</span>
-          <span style={style.arrow}>▼</span>
+      // <div style={style.dropMenu}>
+      //   <div style={style.title}>
+      //     <span>Group</span>
+      //     <span style={style.arrow}>▼</span>
+      //   </div>
+      //   <div style={style.menu}>
+      //     <ul>
+      //       {itemhtml}
+      //     </ul>
+      //   </div>
+      // </div>
+      <div className="drop-menu">
+        <div className="group-show">
+          {/* <input type="input" className="group-name" value="Group"/> */}
+          <span className="group-name" title="{this.state['selected']}">{this.state['selected'].value}</span>
+          <span className="arrow">▼</span>
         </div>
-        <div style={style.menu}>
+        <div className="menu">
           <ul>
-            {itemhtml}
+            {
+              this.state['groups'].map((item: Group) => {
+                return <li className="group" key={item.Key} onClick={() => { this.choiceOneGroup(item) }}>{item.Value}</li>
+              })
+            }
           </ul>
         </div>
-      </div>
+      </div >
     );
   }
 }
 
-const style = {
-  dropMenu: {
-    width: 100,
-    height: 30,
-    lineHeight: '30px',
-    borderWidth: 1,
-    // borderRadius: 4,
-    borderColor: 'silver',
-    borderStyle: 'solid'
-  },
-  title: {
-    width: '100%',
-    height: '100%',
-    // lineHeight:30
-  },
-  arrow: {
-    // float:right
-  },
-  menu: {
-    width: 100,
-    height: 100
-  }
-}
+// const style = {
+//   dropMenu: {
+//     width: 100,
+//     height: 30,
+//     lineHeight: '30px',
+//     borderWidth: 1,
+//     // borderRadius: 4,
+//     borderColor: 'silver',
+//     borderStyle: 'solid'
+//   },
+//   title: {
+//     width: '100%',
+//     height: '100%',
+//     // lineHeight:30
+//   },
+//   arrow: {
+//     // float:right
+//   },
+//   menu: {
+//     width: 100,
+//     height: 100
+//   }
+// }
