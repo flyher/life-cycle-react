@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { DropMenu } from './DropMenu';
+import { DropMenu } from './drop-menu';
 
 export class AutoComplete extends React.Component {
   render() {

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Group } from '../model/menu';
+import { Group } from '../../model/menu';
 
 
 
@@ -87,7 +87,7 @@ export class DropMenu extends React.Component {
       <div style={style.dropMenu}>
         <div style={style.title}>
           <span>Group</span>
-          <span>▼</span>
+          <span style={style.arrow}>▼</span>
         </div>
         <div style={style.menu}>
           <ul>
@@ -103,14 +103,19 @@ const style = {
   dropMenu: {
     width: 100,
     height: 30,
-    lineHieght: 30,
+    lineHeight: '30px',
     borderWidth: 1,
     // borderRadius: 4,
     borderColor: 'silver',
     borderStyle: 'solid'
   },
   title: {
-    width: 100
+    width: '100%',
+    height: '100%',
+    // lineHeight:30
+  },
+  arrow: {
+    // float:right
   },
   menu: {
     width: 100,
