@@ -50,6 +50,8 @@ Press F12 to debug
 
 [react component life cycle](https://reactjs.org/docs/react-component.html)
 
+[Setting the Initial State](https://reactjs.org/docs/react-without-es6.html#setting-the-initial-state)
+
 ### Tools
 
 Build By Visual Studio Code
